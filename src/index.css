@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", sans-serif;
+  --font-sans: "Arial", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Arial", sans-serif;
   --font-serif: "Playfair Display", serif;
 
   /* Custom Emerald Palette */
