@@ -8,7 +8,7 @@ export default function ImageGallery() {
   const images = [
     {
       id: 1,
-      src: '/src/assets/images/tower_perspective_1783138399225.jpg',
+      src: '/images/tower_perspective_1783138399225.jpg',
       title: 'Phối cảnh tổng thể tòa tháp',
       category: 'Ngoại thất',
       dimensions: '1200 x 800 px',
