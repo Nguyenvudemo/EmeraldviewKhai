@@ -16,7 +16,7 @@ export default function ImageGallery() {
     },
     {
       id: 2,
-      src: 'https://github.com/Nguyenvudemo/EmeraldviewKhai/blob/ee18e663f7cc5e83712dbc92b24201a83092ae97/images/amenities_60_1783137868457.jpg',
+      src: '/images/amenities_60_1783137868457.jpg',
       title: 'Hồ bơi vô cực chân mây 65m',
       category: 'Tiện ích',
       dimensions: '1200 x 800 px',
