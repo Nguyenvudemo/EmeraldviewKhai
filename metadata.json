@@ -1,0 +1,6 @@
+{
+  "name": "The Emerald Garden View - Studio 40m²",
+  "description": "Landing page giới thiệu căn hộ Studio 40m² dự án The Emerald Garden View.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
