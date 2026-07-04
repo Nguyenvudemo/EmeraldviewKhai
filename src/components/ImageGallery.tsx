@@ -8,57 +8,51 @@ export default function ImageGallery() {
   const images = [
     {
       id: 1,
-      // ====== THAY ĐỔI ĐƯỜNG DẪN ẢNH THẬT TẠI ĐÂY / REPLACE WITH REAL IMAGE PATH HERE ======
-      src: '', // Ví dụ: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800'
+      src: '/src/assets/images/tower_perspective_1783138399225.jpg',
       title: 'Phối cảnh tổng thể tòa tháp',
       category: 'Ngoại thất',
       dimensions: '1200 x 800 px',
-      desc: 'Thiết kế biểu tượng hiện đại với những mảng kính đón sáng tự nhiên, bao bọc bởi thảm xanh cây cối rộng lớn.'
+      desc: 'Hình ảnh tòa cao ốc sang trọng với ánh đèn hoàng hôn rực rỡ, bao bọc bởi không gian xanh mát.'
     },
     {
       id: 2,
-      // ====== THAY ĐỔI ĐƯỜNG DẪN ẢNH THẬT TẠI ĐÂY / REPLACE WITH REAL IMAGE PATH HERE ======
-      src: '', 
+      src: '/src/assets/images/infinity_pool_65m_1783138411640.jpg',
       title: 'Hồ bơi vô cực chân mây 65m',
       category: 'Tiện ích',
       dimensions: '1200 x 800 px',
-      desc: 'Không gian thư giãn lý tưởng chuẩn resort cao cấp giúp tái tạo năng lượng sau ngày làm việc bận rộn.'
+      desc: 'Hồ bơi chân mây tầng cao tràn viền tuyệt đẹp hòa cùng đường chân trời.'
     },
     {
       id: 3,
-      // ====== THAY ĐỔI ĐƯỜNG DẪN ẢNH THẬT TẠI ĐÂY / REPLACE WITH REAL IMAGE PATH HERE ======
-      src: '', 
+      src: '/src/assets/images/studio_interior_1783138426143.jpg',
       title: 'Thiết kế mở căn hộ Studio 40m²',
       category: 'Nội thất',
       dimensions: '1200 x 800 px',
-      desc: 'Bố cục thông minh liên kết phòng ngủ, phòng khách và bếp ăn một cách liền mạch, tạo cảm giác rộng rãi hơn thực tế.'
+      desc: 'Không gian sống hiện đại, thông minh, ấm cúng và đầy đủ tiện nghi tối ưu công năng.'
     },
     {
       id: 4,
-      // ====== THAY ĐỔI ĐƯỜNG DẪN ẢNH THẬT TẠI ĐÂY / REPLACE WITH REAL IMAGE PATH HERE ======
-      src: '', 
+      src: '/src/assets/images/balcony_light_1783138436152.jpg',
       title: 'Ban công ngập tràn ánh sáng',
       category: 'Nội thất',
       dimensions: '1200 x 800 px',
-      desc: 'Tầm nhìn panorama khoáng đạt đón nắng sớm tươi mát hằng ngày, tạo dòng sinh khí hoàn hảo cho gia chủ.'
+      desc: 'Ban công ngập tràn ánh nắng ban mai kết hợp thảm thực vật xanh tươi mát.'
     },
     {
       id: 5,
-      // ====== THAY ĐỔI ĐƯỜNG DẪN ẢNH THẬT TẠI ĐÂY / REPLACE WITH REAL IMAGE PATH HERE ======
-      src: '', 
+      src: '/src/assets/images/luxury_bathroom_1783138450505.jpg',
       title: 'Bàn giao thiết bị phòng tắm cao cấp',
       category: 'Nội thất',
       dimensions: '1200 x 800 px',
-      desc: 'Bàn giao hoàn thiện với các thiết bị vệ sinh nhập khẩu cao cấp từ thương hiệu danh tiếng, thiết kế sang trọng.'
+      desc: 'Phòng tắm sang trọng phong cách spa với thiết bị vệ sinh nhập khẩu cao cấp.'
     },
     {
       id: 6,
-      // ====== THAY ĐỔI ĐƯỜNG DẪN ẢNH THẬT TẠI ĐÂY / REPLACE WITH REAL IMAGE PATH HERE ======
-      src: '', 
+      src: '/src/assets/images/luxury_lobby_reception_1783138461343.jpg',
       title: 'Sảnh đón tiếp cư dân Luxury',
       category: 'Tiện ích',
       dimensions: '1200 x 800 px',
-      desc: 'Sảnh chờ sang trọng tiêu chuẩn 5 sao với sự phục vụ chuyên nghiệp của đội ngũ lễ tân và bảo an túc trực 24/7.'
+      desc: 'Sảnh đón khách chuẩn khách sạn 5 sao lộng lẫy và tinh tế.'
     }
   ];
 
@@ -73,20 +67,9 @@ export default function ImageGallery() {
             Thư Viện Ảnh Phối Cảnh & Mặt Bằng Dự Án
           </h2>
           <p className="text-slate-500 mt-2 text-sm sm:text-base">
-            Không tạo ảnh AI giả. Dưới đây là khung placeholder chứa sẵn thông số kỹ thuật chuẩn, bạn chỉ cần thay đường dẫn ảnh thật để hoàn thiện trang web.
+            Chiêm ngưỡng không gian sống đẳng cấp, tiện nghi thượng lưu cùng thiết kế căn hộ Studio thông minh, tối ưu hóa công năng tại dự án.
           </p>
           <div className="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded"></div>
-        </div>
-
-        {/* Informational Help Banner for owner */}
-        <div className="mb-10 bg-emerald-50 border border-emerald-100 p-4 rounded-xl flex items-start space-x-3 text-xs sm:text-sm text-emerald-800">
-          <Info className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <span className="font-semibold block">Gợi ý dành cho bạn:</span>
-            <p className="font-light leading-relaxed">
-              Trong mã nguồn của component này, chúng tôi đã tạo sẵn các biến chứa hình ảnh. Khi có hình ảnh phối cảnh 3D thực tế của căn hộ Studio 40m², bạn chỉ cần mở file <code className="font-mono bg-emerald-100/50 px-1 py-0.5 rounded font-bold">/src/components/ImageGallery.tsx</code> và thay link ảnh vào thuộc tính <code className="font-mono bg-emerald-100/50 px-1 py-0.5 rounded font-bold">src</code>.
-            </p>
-          </div>
         </div>
 
         {/* Gallery Grid */}
@@ -98,60 +81,42 @@ export default function ImageGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="bento-card bento-emerald-border overflow-hidden flex flex-col group"
+              onClick={() => setSelectedImage(idx)}
+              className="bento-card bento-emerald-border overflow-hidden relative aspect-[3/2] group cursor-pointer shadow-md rounded-2xl"
             >
               
-              {/* Photo Display Frame (With or Without Image link) */}
-              <div className="relative aspect-[3/2] bg-slate-900/95 flex flex-col items-center justify-center text-center p-6 overflow-hidden">
-                {img.src ? (
-                  <>
-                    <img 
-                      src={img.src} 
-                      alt={img.title} 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
-                  </>
-                ) : (
-                  // Elegant customized schematic placeholder frame when src is empty
-                  <div className="absolute inset-4 border border-dashed border-emerald-800/40 rounded-xl flex flex-col items-center justify-center space-y-3 p-4 bg-emerald-950/25">
-                    <Camera className="w-10 h-10 text-gold-400 stroke-[1.2] animate-pulse" />
-                    <div>
-                      <span className="text-[11px] font-mono tracking-wider text-emerald-300 block uppercase">Kích thước khuyên dùng</span>
-                      <span className="text-xs font-bold text-white block mt-0.5 font-mono">{img.dimensions}</span>
-                    </div>
-                    <span className="text-[10px] text-slate-500 italic max-w-[200px] leading-tight">
-                      (Chưa gắn link ảnh thật)
-                    </span>
-                  </div>
-                )}
-
-                {/* Top category pill */}
-                <span className="absolute top-4 left-4 bg-emerald-900/90 text-gold-200 border border-gold-500/20 px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider z-10">
-                  {img.category}
-                </span>
-
-                {/* Hover overlay icon */}
-                <button
-                  onClick={() => setSelectedImage(idx)}
-                  className="absolute right-4 bottom-4 p-2.5 bg-emerald-950/85 hover:bg-emerald-800 text-gold-300 border border-emerald-800 rounded-full opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all z-10 cursor-pointer shadow-md"
-                  title="Xem chi tiết ảnh rộng"
-                >
-                  <Maximize2 className="w-4 h-4 text-gold-200" />
-                </button>
+              {/* Photo Display Frame */}
+              <div className="absolute inset-0 w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden">
+                <img 
+                  src={img.src} 
+                  alt={img.title} 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Overlay to dim on normal, darken slightly on hover for visual depth */}
+                <div className="absolute inset-0 bg-neutral-950/15 group-hover:bg-neutral-950/35 transition-colors duration-300"></div>
               </div>
 
-              {/* Text Description Box */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div className="space-y-1.5">
-                  <h3 className="font-serif font-bold text-sm sm:text-base text-slate-800 group-hover:text-emerald-800 transition-colors">
-                    {img.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    {img.desc}
-                  </p>
-                </div>
+              {/* White Translucent Hover Overlay with Black Text */}
+              <div className="absolute inset-0 bg-white/90 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-all duration-350 ease-out z-20 flex flex-col justify-center p-6 sm:p-8 text-left">
+                <span className="text-[10px] tracking-widest uppercase text-emerald-800 font-semibold mb-1 block">
+                  {img.category}
+                </span>
+                <h4 className="text-slate-950 font-serif font-bold text-base sm:text-lg mb-2 leading-tight">
+                  {img.title}
+                </h4>
+                <div className="w-8 h-[2px] bg-emerald-600 mb-3"></div>
+                <p className="text-slate-800 text-xs sm:text-sm leading-relaxed font-normal">
+                  {img.desc}
+                </p>
+              </div>
+
+              {/* Hover overlay zoom icon on bottom left */}
+              <div
+                className="absolute left-4 bottom-4 p-2.5 bg-emerald-950/90 hover:bg-emerald-800 text-gold-300 border border-emerald-800/80 rounded-full opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 z-30 shadow-lg flex items-center justify-center"
+                title="Xem chi tiết ảnh rộng"
+              >
+                <Maximize2 className="w-4 h-4 text-gold-200" />
               </div>
 
             </motion.div>
