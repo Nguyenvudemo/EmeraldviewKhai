@@ -4,43 +4,51 @@ import {
   Sparkles, Coffee, ShieldCheck, Heart, Users, MapPin 
 } from 'lucide-react';
 
+// Import images via ES modules to ensure Vite processes them correctly for production builds
+import pool65mImg from '../assets/images/pool_65m_1783137806819.jpg';
+import mall5tImg from '../assets/images/mall_5t_1783137818760.jpg';
+import outdoorCinemaImg from '../assets/images/outdoor_cinema_1783137830414.jpg';
+import gymYogaImg from '../assets/images/gym_yoga_1783137843946.jpg';
+import centralParkImg from '../assets/images/central_park_1783137856497.jpg';
+import amenities60Img from '../assets/images/amenities_60_1783137868457.jpg';
+
 export default function Amenities() {
   const highlights = [
     {
       icon: <Waves className="w-8 h-8 text-gold-300" />,
       title: 'Hồ bơi vô cực 65m',
       desc: 'Hồ bơi đạt chuẩn Olympic lớn nhất đô thị, thiết kế tràn viền chân mây cho cảm xúc sảng khoái mát lành tuyệt đối.',
-      bgImage: '/src/assets/images/pool_65m_1783137806819.jpg'
+      bgImage: pool65mImg
     },
     {
       icon: <ShoppingBag className="w-8 h-8 text-gold-300" />,
       title: 'TTTM khối đế 5 tầng',
       desc: 'Thiên đường mua sắm sầm uất, hội tụ hàng trăm nhãn hàng thời trang, khu ẩm thực và siêu thị quốc tế ngay thềm nhà.',
-      bgImage: '/src/assets/images/mall_5t_1783137818760.jpg'
+      bgImage: mall5tImg
     },
     {
       icon: <Film className="w-8 h-8 text-gold-300" />,
       title: 'Rạp phim ngoài trời',
       desc: 'Đặc quyền thượng lưu, trải nghiệm xem phim bom tấn dưới bầu trời sao lung linh đầy lãng mạn và tinh tế.',
-      bgImage: '/src/assets/images/outdoor_cinema_1783137830414.jpg'
+      bgImage: outdoorCinemaImg
     },
     {
       icon: <Dumbbell className="w-8 h-8 text-gold-300" />,
       title: 'Phòng Gym & Yoga cao cấp',
       desc: 'Không gian tập hiện đại, đầy đủ thiết bị nhập khẩu Châu Âu với tầm nhìn trực diện hồ bơi vô cực thư thái.',
-      bgImage: '/src/assets/images/gym_yoga_1783137843946.jpg'
+      bgImage: gymYogaImg
     },
     {
       icon: <Trees className="w-8 h-8 text-gold-300" />,
       title: 'Công viên cây xanh trung tâm',
       desc: 'Mật độ xanh bao phủ rộng lớn, con đường dạo bộ rợp bóng mát đóng vai trò lá phổi sinh thái điều hòa toàn khu.',
-      bgImage: '/src/assets/images/central_park_1783137856497.jpg'
+      bgImage: centralParkImg
     },
     {
       icon: <Sparkles className="w-8 h-8 text-gold-300" />,
       title: 'Hơn 60+ Tiện ích đặc quyền',
       desc: 'Trải dài từ Skybar chân mây, khu vui chơi trẻ em Kid Zone, Vườn BBQ ngoài trời, sảnh đón Louge 5 sao...',
-      bgImage: '/src/assets/images/amenities_60_1783137868457.jpg'
+      bgImage: amenities60Img
     }
   ];
 
