@@ -2,13 +2,21 @@ import { useState } from 'react';
 import { Camera, Image, Maximize2, X, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+// Import images via ES modules to ensure Vite processes them correctly for production builds
+import towerPerspectiveImg from '../assets/images/tower_perspective_1783138399225.jpg';
+import infinityPool65mImg from '../assets/images/infinity_pool_65m_1783138411640.jpg';
+import studioInteriorImg from '../assets/images/studio_interior_1783138426143.jpg';
+import balconyLightImg from '../assets/images/balcony_light_1783138436152.jpg';
+import luxuryBathroomImg from '../assets/images/luxury_bathroom_1783138450505.jpg';
+import luxuryLobbyReceptionImg from '../assets/images/luxury_lobby_reception_1783138461343.jpg';
+
 export default function ImageGallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
     {
       id: 1,
-      src: '/images/tower_perspective_1783138399225.jpg',
+      src: towerPerspectiveImg,
       title: 'Phối cảnh tổng thể tòa tháp',
       category: 'Ngoại thất',
       dimensions: '1200 x 800 px',
@@ -16,7 +24,7 @@ export default function ImageGallery() {
     },
     {
       id: 2,
-      src: 'https://github.com/Nguyenvudemo/EmeraldviewKhai/blob/ee18e663f7cc5e83712dbc92b24201a83092ae97/images/amenities_60_1783137868457.jpg?raw=true',
+      src: infinityPool65mImg,
       title: 'Hồ bơi vô cực chân mây 65m',
       category: 'Tiện ích',
       dimensions: '1200 x 800 px',
@@ -24,7 +32,7 @@ export default function ImageGallery() {
     },
     {
       id: 3,
-      src: '/src/assets/images/studio_interior_1783138426143.jpg',
+      src: studioInteriorImg,
       title: 'Thiết kế mở căn hộ Studio 40m²',
       category: 'Nội thất',
       dimensions: '1200 x 800 px',
@@ -32,7 +40,7 @@ export default function ImageGallery() {
     },
     {
       id: 4,
-      src: '/src/assets/images/balcony_light_1783138436152.jpg',
+      src: balconyLightImg,
       title: 'Ban công ngập tràn ánh sáng',
       category: 'Nội thất',
       dimensions: '1200 x 800 px',
@@ -40,7 +48,7 @@ export default function ImageGallery() {
     },
     {
       id: 5,
-      src: '/src/assets/images/luxury_bathroom_1783138450505.jpg',
+      src: luxuryBathroomImg,
       title: 'Bàn giao thiết bị phòng tắm cao cấp',
       category: 'Nội thất',
       dimensions: '1200 x 800 px',
@@ -48,7 +56,7 @@ export default function ImageGallery() {
     },
     {
       id: 6,
-      src: '/src/assets/images/luxury_lobby_reception_1783138461343.jpg',
+      src: luxuryLobbyReceptionImg,
       title: 'Sảnh đón tiếp cư dân Luxury',
       category: 'Tiện ích',
       dimensions: '1200 x 800 px',
