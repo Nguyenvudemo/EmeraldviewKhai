@@ -118,17 +118,15 @@ export default function RegistrationForm() {
       setIsSubmitting(false);
       setSubmitted(true);
 
-      // ====== PHẦN ĐỂ BẠN TỰ TÍCH HỢP SAU NÀY (CRM, GOOGLE SHEETS, WEBHOOK...) / CHÚ THÍCH THAY THẾ ======
-      /*
-      // Ví dụ tích hợp gửi dữ liệu khách hàng lên Google Sheet bằng Webhook hoặc Chatbot:
-      fetch('LINK_WEBHOOK_CỦA_BẠN_TẠI_ĐÂY', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newLead)
-      })
-      .then(res => console.log('Đã đồng bộ lên Google Sheet thành công!'))
-      .catch(err => console.error('Lỗi đồng bộ:', err));
-      */
+      // Gửi dữ liệu khách hàng lên Google Sheet bằng Webhook Apps Script
+fetch('https://script.google.com/macros/s/AKfycbxrAmRwg7_0L5t6f1MCv-Z9ayeGoyNaXTqUKmjy9ttL1-Al7HNVN_9KS9n77KXnF5JIsA/exec', {
+  method: 'POST',
+  mode: 'no-cors', // Sử dụng no-cors nếu chạy trên local tránh lỗi CORS kiểm duyệt
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(newLead)
+})
+.then(() => console.log('Đã đồng bộ lên Google Sheet thành công!'))
+.catch(err => console.error('Lỗi đồng bộ:', err));
 
     }, 1000);
   };
