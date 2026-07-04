@@ -2,23 +2,86 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Send, CheckCircle, User, Phone, Sparkles, HelpCircle, 
-  Coins, Clock, Landmark, Gift, MessageSquareCode
+  Coins, Clock, Landmark, Gift, MessageSquareCode, Mail
 } from 'lucide-react';
 import { LeadSubmission } from '../types';
 
 export default function RegistrationForm() {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [purpose, setPurpose] = useState<'living' | 'renting' | 'investing' | ''>('');
   const [budget, setBudget] = useState('');
   const [preferredTime, setPreferredTime] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Validation States
+  const [phoneError, setPhoneError] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow digits (remove everything else instantly)
+    const val = e.target.value.replace(/\D/g, '');
+    setPhone(val);
+
+    // Validate phone input live
+    if (val === '') {
+      setPhoneError('Vui lòng nhập Số điện thoại!');
+    } else if (!val.startsWith('0')) {
+      setPhoneError("Số điện thoại phải có số '0' ở đầu (Ví dụ: 0903423229)");
+    } else if (val.length !== 10) {
+      setPhoneError('Số điện thoại phải có đúng 10 số (Ví dụ: 0903423229)');
+    } else {
+      setPhoneError('');
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setEmail(val);
+
+    // Validate email input live
+    if (val === '') {
+      setEmailError('Vui lòng nhập địa chỉ Gmail!');
+    } else if (!val.toLowerCase().endsWith('@gmail.com')) {
+      setEmailError("Địa chỉ Gmail phải có đuôi '@gmail.com' (Ví dụ: nguyenphongvu@gmail.com)");
+    } else {
+      setEmailError('');
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !phone) {
-      alert('Vui lòng nhập đầy đủ Họ tên và Số điện thoại!');
+    
+    // Check required fields
+    if (!fullName || !phone || !email) {
+      alert('Vui lòng điền đầy đủ các thông tin bắt buộc!');
+      return;
+    }
+
+    let hasError = false;
+
+    // Strict Phone validation
+    if (!phone.startsWith('0')) {
+      setPhoneError("Số điện thoại phải có số '0' ở đầu (Ví dụ: 0903423229)");
+      hasError = true;
+    } else if (phone.length !== 10) {
+      setPhoneError('Số điện thoại phải có đúng 10 số (Ví dụ: 0903423229)');
+      hasError = true;
+    } else {
+      setPhoneError('');
+    }
+
+    // Strict Email validation
+    if (!email.toLowerCase().endsWith('@gmail.com')) {
+      setEmailError("Địa chỉ Gmail phải có đuôi '@gmail.com' (Ví dụ: nguyenphongvu@gmail.com)");
+      hasError = true;
+    } else {
+      setEmailError('');
+    }
+
+    if (hasError) {
       return;
     }
 
@@ -30,6 +93,7 @@ export default function RegistrationForm() {
         id: 'lead_' + Math.random().toString(36).substr(2, 9),
         fullName,
         phone,
+        email,
         purpose,
         budget: budget || 'Chưa chọn',
         preferredTime: preferredTime || 'Càng sớm càng tốt',
@@ -72,6 +136,9 @@ export default function RegistrationForm() {
   const handleReset = () => {
     setFullName('');
     setPhone('');
+    setEmail('');
+    setPhoneError('');
+    setEmailError('');
     setPurpose('');
     setBudget('');
     setPreferredTime('');
@@ -202,11 +269,41 @@ export default function RegistrationForm() {
                     <input 
                       type="tel"
                       required
-                      placeholder="Nhập số điện thoại di động (Ví dụ: 0903...)"
+                      placeholder="Nhập số điện thoại di động (Ví dụ: 0903423229)"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-700 text-sm font-medium bg-slate-50 focus:bg-white transition-all text-slate-800"
+                      onChange={handlePhoneChange}
+                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-700 text-sm font-medium bg-slate-50 focus:bg-white transition-all text-slate-800 ${
+                        phoneError ? 'border-rose-500 ring-2 focus:ring-rose-500' : 'border-slate-200'
+                      }`}
                     />
+                    {phoneError && (
+                      <p className="text-xs text-rose-500 font-medium mt-1 flex items-center gap-1" id="phone-error-msg">
+                        <span>⚠️</span> {phoneError}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Input Gmail */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wide flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5 text-emerald-700" />
+                      Địa chỉ Gmail <span className="text-rose-500">*</span>
+                    </label>
+                    <input 
+                      type="email"
+                      required
+                      placeholder="Nhập địa chỉ email của bạn (Ví dụ: nguyenphongvu@gmail.com)"
+                      value={email}
+                      onChange={handleEmailChange}
+                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-700 text-sm font-medium bg-slate-50 focus:bg-white transition-all text-slate-800 ${
+                        emailError ? 'border-rose-500 ring-2 focus:ring-rose-500' : 'border-slate-200'
+                      }`}
+                    />
+                    {emailError && (
+                      <p className="text-xs text-rose-500 font-medium mt-1 flex items-center gap-1" id="email-error-msg">
+                        <span>⚠️</span> {emailError}
+                      </p>
+                    )}
                   </div>
 
                   {/* Radio Selector: Purpose of buying */}
@@ -322,6 +419,10 @@ export default function RegistrationForm() {
                     <div className="flex justify-between">
                       <span className="text-slate-400">Số điện thoại:</span>
                       <span className="font-mono font-bold text-slate-800">{phone}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-400">Địa chỉ Gmail:</span>
+                      <span className="font-mono font-bold text-slate-800">{email}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Nhu cầu đăng ký:</span>
