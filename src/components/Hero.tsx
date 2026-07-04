@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Building, Percent, ShieldCheck } from 'lucide-react';
 
+// Import tower perspective image via ES modules for background
+import towerPerspectiveImg from '../assets/images/tower_perspective_1783138399225.jpg';
+
 interface HeroProps {
   onScrollToForm: () => void;
 }
@@ -104,12 +107,12 @@ export default function Hero({ onScrollToForm }: HeroProps) {
           </div>
 
           {/* Hero visual panel - Modern architectural mock / placeholder */}
-          <div className="lg:col-span-5 relative w-full flex justify-center items-center">
+          <div className="lg:col-span-5 relative w-full flex justify-center items-center py-4">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none bento-card bento-gold-border p-5 bg-emerald-950/40 backdrop-blur-sm overflow-hidden"
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none bento-card bento-gold-border p-5 bg-emerald-950/40 backdrop-blur-sm overflow-visible"
             >
               {/* Inner gradient line element */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500 via-gold-400 to-emerald-500"></div>
@@ -121,10 +124,21 @@ export default function Hero({ onScrollToForm }: HeroProps) {
               <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-gold-400/50"></div>
 
               {/* Core Building Silhouette/Grid Frame */}
-              <div className="aspect-square bg-slate-900/90 border border-emerald-800/50 rounded-xl relative overflow-hidden flex flex-col justify-between p-6">
+              <div className="aspect-square bg-slate-950 border border-emerald-800/50 rounded-xl relative overflow-hidden flex flex-col justify-between p-6">
                 
+                {/* Background Image of the Project with Dark Overlay for readability */}
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={towerPerspectiveImg} 
+                    alt="The Emerald Garden View Perspective" 
+                    className="w-full h-full object-cover opacity-35"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/50"></div>
+                </div>
+
                 {/* Visual Header */}
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center relative z-10">
                   <div className="flex items-center space-x-2 text-[10px] text-emerald-400 font-mono">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>PROPOSAL PREVIEW</span>
@@ -135,17 +149,17 @@ export default function Hero({ onScrollToForm }: HeroProps) {
                 </div>
 
                 {/* Conceptual Architectural Grid Blueprint */}
-                <div className="my-auto flex flex-col items-center justify-center text-center space-y-4 py-8">
-                  <div className="w-20 h-20 rounded-2xl bg-emerald-950/80 border border-gold-400/30 flex items-center justify-center text-gold-300 shadow-inner">
+                <div className="my-auto flex flex-col items-center justify-center text-center space-y-4 py-8 relative z-10">
+                  <div className="w-20 h-20 rounded-2xl bg-emerald-950/90 border border-gold-400/40 flex items-center justify-center text-gold-300 shadow-xl backdrop-blur-xs">
                     <Building className="w-10 h-10 stroke-[1.2] text-gold-400 animate-pulse" />
                   </div>
                   <div>
-                    <span className="font-serif font-bold text-xl block text-gold-200">The Emerald Garden View</span>
-                    <span className="text-xs text-emerald-400 block font-mono mt-1">THUAN AN CITY - HO CHI MINH METRO</span>
+                    <span className="font-serif font-bold text-xl block text-gold-200 drop-shadow-md">The Emerald Garden View</span>
+                    <span className="text-xs text-emerald-300 block font-mono mt-1 drop-shadow-xs">THUAN AN CITY - HO CHI MINH METRO</span>
                   </div>
                   
                   {/* Floating specification lines */}
-                  <div className="w-full bg-emerald-950/50 border border-emerald-900 rounded-lg p-3 text-xs space-y-1.5 font-mono text-emerald-300">
+                  <div className="w-full bg-emerald-950/80 border border-emerald-800/50 rounded-lg p-3 text-xs space-y-1.5 font-mono text-emerald-300 backdrop-blur-xs shadow-lg">
                     <div className="flex justify-between">
                       <span>Vị Trí:</span>
                       <span className="text-white font-medium">Trung tâm Thuận An</span>
@@ -162,7 +176,7 @@ export default function Hero({ onScrollToForm }: HeroProps) {
                 </div>
 
                 {/* Placeholder Overlay Reminder */}
-                <div className="text-center text-[10px] text-slate-500 italic mt-auto border-t border-slate-900 pt-3">
+                <div className="text-center text-[10px] text-slate-400 italic mt-auto border-t border-slate-900/50 pt-3 relative z-10 drop-shadow-xs">
                   (Hình ảnh phối cảnh dự án thực tế được cung cấp khi tải tài liệu)
                 </div>
 
