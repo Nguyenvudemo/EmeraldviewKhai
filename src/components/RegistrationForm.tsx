@@ -45,7 +45,7 @@ export default function RegistrationForm() {
     if (val === '') {
       setEmailError('Vui lòng nhập địa chỉ Gmail!');
     } else if (!val.toLowerCase().endsWith('@gmail.com')) {
-      setEmailError("Địa chỉ Gmail phải có đuôi '@gmail.com' (Ví dụ: nguyenphongvu@gmail.com)");
+      setEmailError("Địa chỉ Gmail phải có đuôi '@gmail.com' (Ví dụ: nguyenkhai79@gmail.com)");
     } else {
       setEmailError('');
     }
