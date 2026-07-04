@@ -6,6 +6,7 @@ export interface LeadSubmission {
   id: string;
   fullName: string;
   phone: string;
+  email?: string;
   purpose: 'living' | 'renting' | 'investing' | '';
   budget: string;
   preferredTime: string;
