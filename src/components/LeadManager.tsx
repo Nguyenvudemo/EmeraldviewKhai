@@ -91,7 +91,7 @@ export default function LeadManager({ onClose }: LeadManagerProps) {
     }
 
     // Define CSV header and map rows
-    const headers = ['Thời gian đăng ký', 'Họ & Tên', 'Số điện thoại', 'Nhu cầu', 'Ngân sách dự kiến', 'Thời gian gọi lại', 'Trạng thái', 'Ghi chú'];
+    const headers = ['Thời gian đăng ký', 'Họ & Tên', 'Số điện thoại', 'Email', 'Nhu cầu', 'Ngân sách dự kiến', 'Thời gian gọi lại', 'Trạng thái', 'Ghi chú'];
     const csvRows = [
       headers.join(','), // Header row
       ...leads.map(lead => {
@@ -112,6 +112,7 @@ export default function LeadManager({ onClose }: LeadManagerProps) {
           `"${new Date(lead.createdAt).toLocaleString('vi-VN')}"`,
           `"${lead.fullName.replace(/"/g, '""')}"`,
           `"'${lead.phone}"`, // Prepended with apostrophe to keep leading zero in Excel
+          `"${(lead.email || 'Chưa cung cấp').replace(/"/g, '""')}"`,
           `"${purposeMap[lead.purpose] || lead.purpose}"`,
           `"${lead.budget.replace(/"/g, '""')}"`,
           `"${lead.preferredTime.replace(/"/g, '""')}"`,
@@ -156,7 +157,8 @@ export default function LeadManager({ onClose }: LeadManagerProps) {
   const filteredLeads = leads.filter(lead => {
     const matchesSearch = 
       lead.fullName.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      lead.phone.includes(searchTerm);
+      lead.phone.includes(searchTerm) ||
+      (lead.email && lead.email.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const matchesStatus = statusFilter === 'all' || lead.status === statusFilter;
     const matchesPurpose = purposeFilter === 'all' || lead.purpose === purposeFilter;
@@ -321,8 +323,14 @@ export default function LeadManager({ onClose }: LeadManagerProps) {
                             {/* Contact Details */}
                             <td className="px-4 py-3">
                               <div className="font-semibold text-slate-900">{lead.fullName}</div>
-                              <div className="text-xs text-slate-500 flex items-center gap-1.5 mt-0.5">
+                              <div className="text-xs text-slate-500 flex flex-wrap items-center gap-1.5 mt-0.5">
                                 <span className="font-mono text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">{lead.phone}</span>
+                                {lead.email && (
+                                  <>
+                                    <span className="text-[10px] text-slate-400">•</span>
+                                    <span className="font-mono text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">{lead.email}</span>
+                                  </>
+                                )}
                                 <span className="text-[10px] text-slate-400">•</span>
                                 <span className="flex items-center gap-0.5"><Calendar className="w-3 h-3 text-slate-400" /> {new Date(lead.createdAt).toLocaleDateString('vi-VN')}</span>
                               </div>
